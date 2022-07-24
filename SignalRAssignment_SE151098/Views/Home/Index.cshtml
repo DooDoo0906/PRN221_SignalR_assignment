@@ -1,0 +1,36 @@
+﻿@model BusinessObject.Models.AppUser
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@if (@HttpContextAccessor.HttpContext.Session.GetString("name") == null && @HttpContextAccessor.HttpContext.Session.GetInt32("id") == null)
+{
+   
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Index">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="UserId" value="1" />
+                <input type="hidden" asp-for="FullName" value="Default" />
+                <input type="hidden" asp-for="Address" value="Default" />
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

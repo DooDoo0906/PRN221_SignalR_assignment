@@ -1,0 +1,88 @@
+﻿@model IEnumerable<BusinessObject.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@*<form method="get" id="search-form">
+    <div class="d-flex flex-column justify-content-start">
+        <h6>Search by tile or content or ID and apply date filter</h6>
+        <div class="form-actions no-color">
+            <input type="text" name="search" id="search" />
+            <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+        </div>
+    </div>
+</form>
+*@
+<p>
+    <a class="btn btn-primary btn-sm mt-3" asp-action="Index">View all</a>
+</p>
+<p>
+    <a class="btn btn-primary btn-sm mt-3" asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @*<tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>*@
+    <tbody id="tableBody2"></tbody>
+
+</table>
+
